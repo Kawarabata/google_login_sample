@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
-  root 'sessions#new'
+  root 'home#index'
 
   get 'auth/:provider/callback', to: 'sessions#create'
   get 'auth/failure', to: redirect('/')
-  get 'signout', to: 'sessions#destroy', as: 'signout'
+  get 'log_out', to: 'sessions#destroy', as: 'log_out'
 
   resources :sessions, only: %i[create destroy]
 end
